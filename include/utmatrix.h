@@ -220,7 +220,7 @@ ValType TVector<ValType>::operator*(const TVector<ValType> &v)
     ValType result = 0;
     for (int i = 0; i < Size; i++)
     {
-        result += pVector[i] * pVector[i];
+        result += pVector[i] * v.pVector[i];
     }
     return result;
 } 

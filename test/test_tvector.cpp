@@ -2,6 +2,18 @@
 
 #include <gtest.h>
 
+TEST(TVector, multiplication_works_correctly)
+{
+	TVector<int> v(3);
+	TVector<int> v1(3);
+	for (int i = 0; i < v.GetSize(); i++)
+	{
+		v[i] = i + 1;
+		v1[i] = i + 1;
+	}
+	EXPECT_EQ(v * v1, 14);
+}
+
 TEST(TVector, can_create_vector_with_positive_length)
 {
   ASSERT_NO_THROW(TVector<int> v(5));
@@ -40,8 +52,7 @@ TEST(TVector, copied_vector_has_its_own_memory)
 {
   TVector<int> v(10);
 	TVector<int> v1(v);
-	v1 = v1 + 1;
-	EXPECT_NE(v, v1);
+	ASSERT_TRUE(&v != &v1);
 }
 
 TEST(TVector, can_get_size)

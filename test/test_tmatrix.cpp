@@ -35,9 +35,7 @@ TEST(TMatrix, copied_matrix_has_its_own_memory)
 {
 	TMatrix<int> m(5);
 	TMatrix<int> m1(m);
-	TMatrix<int> m2(5);
-	m1 = m1 + m2;
-	EXPECT_FALSE(m == m1);
+	ASSERT_TRUE(&m != &m1);
 }
 
 TEST(TMatrix, can_get_size)
